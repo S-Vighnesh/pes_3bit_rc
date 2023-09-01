@@ -1,4 +1,4 @@
-module iiitb_3bit_rc(clk, ori, count);
+module pes_3bit_rc(clk, ori, count);
 	input clk;
 	input ori;
 	output[2:0] count;
