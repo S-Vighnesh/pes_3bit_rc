@@ -302,7 +302,8 @@ The above picture shows that the cell was placed successfully.
 <br/>
 ## RESULTS <br/>
 **1. Gate count** <br/>
-![stats](https://user-images.githubusercontent.com/64605104/192591005-de9d1dab-f0a2-4750-8de8-9d665e6898ca.png)
+![image](https://github.com/S-Vighnesh/pes_3bit_rc/assets/137196908/5e48f11d-cbf8-4f65-bf5b-547e12f50aa5)
+
 
   
 <br/>
@@ -310,7 +311,8 @@ Total gate count = 6<br/>
 <br/>
 
 **2. Area** <br/>
-![magic_area](https://user-images.githubusercontent.com/64605104/192591061-058ea45a-bd51-4bdf-b5c0-426d5b594fa4.png)
+![image](https://github.com/S-Vighnesh/pes_3bit_rc/assets/137196908/d2d911cb-be98-48ec-8ea9-07e6cb1e65a6)
+
 
 <br/>
 Area = 3600 um^2 <br/>
@@ -318,20 +320,23 @@ Area = 3600 um^2 <br/>
 
 **3.Performance** <br/>
 
-![timing_final](https://user-images.githubusercontent.com/64605104/192736065-a95cebbf-7645-4036-ba9f-ac3261f0df75.png)
+![image](https://github.com/S-Vighnesh/pes_3bit_rc/assets/137196908/e3a5a5eb-4a3f-4ed4-99ab-d2e4cae3bf43)
+
 
 Performance = 1/(1.7) = 0.58 GHz <br/>
 <br/>
 
 **4. Flop to standard cell ratio** <br/>
-![flip_flop_ratio](https://user-images.githubusercontent.com/64605104/192591170-b844f170-88d7-4331-be2c-9a2b1e8531cb.png)
+![image](https://github.com/S-Vighnesh/pes_3bit_rc/assets/137196908/63f51790-b3f8-41ea-830a-528ac8c364ce)
+
 
 <br/>
 Flop ratio = 3/6 = 0.5 <br/>
 <br/>
 
 **5. Power** <br/>
-![power](https://user-images.githubusercontent.com/64605104/192591211-09f15411-5af7-4c16-8af6-15f476d89e50.png)
+![image](https://github.com/S-Vighnesh/pes_3bit_rc/assets/137196908/9f5e7c17-554d-4607-980b-85448bb72506)
+
 
 
 <br/>
@@ -349,18 +354,3 @@ Total Power = 132 uW (100%)<br/>
 - https://github.com/RTimothyEdwards/magic <br/>
 - https://github.com/The-OpenROAD-Project/OpenLane <br/>
 - https://www.vsdiat.com/dashboard <br/>
-## ACKNOWLEDGMENTS <br/>
-- Kunal Ghosh, Director, VSD Corp. Pvt. Ltd. <br/>
-- Nickson Jose, VLSI Engineer, VSD Corp. Pvt. Ltd. <br/>
-- Madhav Rao, Professor, IIIT-Bangalore <br/>
-- Nanditha Rao, Professor, IIIT-Bangalore <br/>
-## CONTRIBUTORS <br/>
-- Arsh Kedia, Mtech IIIT Bangalore <br/>
-- Kunal Ghosh Director, VSD Corp.Pvt.Ltd. <br/>
-- Lokesh Maji <br/>
-- Vinay Rayapati <br/>
-## CONTACT <br/>
-- Kunal Ghosh, Director, VSD Corp. Pvt. Ltd. kunalghosh@gmail.com <br/>
-- Arsh Kedia, Mtech IIIT Bangalore. arshkedia99@gmail.com <br/>
-- Madhav Rao, mr@iiitb.ac.in <br/>
-- Nanditha Rao, nanditha.rao@iiitb.ac.in <br/>
