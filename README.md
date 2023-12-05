@@ -3,7 +3,7 @@
 
 This project simulates the design of a 3-bit ring counter using verilog HDL. A ring counter works in a similar way as a shift register. The only difference is that the output of the last flip-flop is connected to the input of the first flip-flop. In this way, the counter forms a ring and hence is called ring counter.In this design, three D-Flip-flops are used with clock and ori(override input) signals.
 ## BLOCK DIAGRAM <br/>
-![iiitb_3bit_rc](https://user-images.githubusercontent.com/64605104/181275677-2b2b20e7-2aea-40bc-9166-7bbf0fc9887e.png)
+![pes_3bit_rc](https://user-images.githubusercontent.com/64605104/181275677-2b2b20e7-2aea-40bc-9166-7bbf0fc9887e.png)
 
 
 The above figure is the block diagram of a 3bit ring counter. The figure shows three D flip flop connected with a clock and an ORI signal. The design uses an active high ORI signal which sets the first flip flop to '1' and the other two flip flops to '0' when ORI is high. The circuit uses a positve edge triggered clock.<br/>
@@ -127,13 +127,13 @@ Below picture gives an insight of the procedure. Here while using iverilog, you 
 
 ***To clone the repository and download the netlist files for simulation, enter the following command in your terminal***<br/>
 ```
-$ git clone https://github.com/ArshKedia/iiitb_3bit_rc
+$ git clone https://github.com/S-Vighnesh/pes_3bit_rc
 ```
-***After cloning the git repository, type the following in "iiitb_3bit_rc" directory in the terminal for RTL Simulation.***<br/>
+***After cloning the git repository, type the following in "pes_3bit_rc" directory in the terminal for RTL Simulation.***<br/>
 ```
-$ iverilog iiitb_3bit_rc.v iiitb_3bit_rc_tb.v
+$ iverilog pes_3bit_rc.v pes_3bit_rc_tb.v
 $ ./a.out 
-$ gtkwave iiitb_3bit_rr_out.vcd
+$ gtkwave pes_3bit_rr_out.vcd
 ```
 ***For synthesis, run "yosys_run.sh" file in the same directory in terminal.***<br/>
 ```
@@ -142,12 +142,12 @@ $ yosys -s yosys_run.sh
 The above commands create the netlist of iverilog code.<br/><br/>
 ***For Gate level syntheses(GLS), type the following in the same directory in terminal***<br/>
 ```
-$ iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 ../iiitb_3bit_rc/verilog_model/primitives.v ../iiitb_3bit_rc/verilog_model/sky130_fd_sc_hd.v iiitb_3bit_rc_net.v iiitb_3bit_rc_tb.v
+$ iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 ../pes_3bit_rc/verilog_model/primitives.v ../pes_3bit_rc/verilog_model/sky130_fd_sc_hd.v pes_3bit_rc_net.v pes_3bit_rc_tb.v
 ```
 ***To generate the simulation, type the following in the same directory in terminal***<br/>
 ```
 $ ./a.out
-$ gtkwave iiitb_3bit_rr.vcd
+$ gtkwave pes_3bit_rr.vcd
 ```
 
 
@@ -184,24 +184,24 @@ After GLS, the final layout is obtained using OpenLane using the following comma
 ```
 $   cd OpenLane/
 $   cd designs/
-$   mkdir iiitb_3bit_rc
-$   cd iiitb_3bit_rc/
+$   mkdir pes_3bit_rc
+$   cd pes_3bit_rc/
 ```
 Then copy the config.json file in the current directory and type the following commands: <br/>
 ```
 $   mkdir src
 $   cd src/
 ```
-Copy the iiitb_3bit_rc.v file in the current directory and type the following commands:<br/>
+Copy the pes_3bit_rc.v file in the current directory and type the following commands:<br/>
 ```
 $   cd ../../../
 $   sudo make mount
-$   ./flow.tcl -design iiitb_3bit_rc
+$   ./flow.tcl -design pes_3bit_rc
 ```
 We now use Magic tool to view the layout that we made using openlane. To view the layout type the following commmands in the home directory.<br/>
 ```
-$   cd /home/arsh/OpenLane/designs/iiitb_3bit_rc/runs/RUN_2022.08.21_09.15.00/results/final/def
-$   magic -T /home/arsh/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../../tmp/merged.max.lef def read iiitb_3bit_rc.def
+$   cd /home/Vighnesh/OpenLane/designs/pes_3bit_rc/runs/RUN_2022.08.21_09.15.00/results/final/def
+$   magic -T /home/Vighnesh/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../../tmp/merged.max.lef def read pes_3bit_rc.def
 ```
 
 ![final_layout](https://user-images.githubusercontent.com/64605104/187413954-dd4d0edc-1b86-4706-ba43-1fa8f31bf1b2.png)
@@ -260,7 +260,7 @@ Then type the following command to generate the lef file.<br/>
 lef write
 ```
 <br/>
-In order to include the new standard cell in the synthesis, copy the sky130_vsdinv.lef file to the designs/iiitb_3bit_rc/src directory.<br/>
+In order to include the new standard cell in the synthesis, copy the sky130_vsdinv.lef file to the designs/pes_3bit_rc/src directory.<br/>
 Since abc maps the standard cell to a library abc there must be a library that defines the CMOS inverter. The sky130_fd_sc_hd_typical.lib file, sky130_fd_sc_hd_slow.lib file and sky130_fd_sc_hd_fast.lib from vsdstdcelldesign/libs directory needs to be copied to the designs/iiitb_3bit_rc/src directory.<br/>
 The config.json file also needs to be updated as following: <br/><br/>
 
@@ -269,7 +269,7 @@ The config.json file also needs to be updated as following: <br/><br/>
 <br/>
 In order to integrate the standard cell in the OpenLANE flow, invoke openLANE as usual and carry out following steps:<br/>
 ```
-prep -design iiitb_3bit_rc
+prep -design pes_3bit_rc
 set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
 add_lefs -src $lefs
 run_synthesis
@@ -278,7 +278,7 @@ run_placement
 ```
 To see the layout,invoke magic from the results/placement directory using the following command. <br/>
 ```
-$ magic -T /home/arsh/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read iiitb_3bit_rc.def &
+$ magic -T /home/Vighnesh/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read pes_3bit_rc.def &
 
 ```
 
